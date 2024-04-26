@@ -1,66 +1,55 @@
-let fruitspush = ["apple", "banana"];
-fruitspush.push("orange"); // ["apple", "banana", "orange"]
+// Ejemplos de métodos de array
 
-let fruitspop = ["apple", "banana", "orange"];
-let lastFruitpop = fruitspop.pop(); // "orange"
+// Método push: Agrega elementos al final del array
+let frutasAgregar = ["manzana", "plátano"];
+frutasAgregar.push("naranja"); // ["manzana", "plátano", "naranja"]
 
-let fruitsshift = ["apple", "banana", "orange"];
-let firstFruitshift = fruitsshift.shift(); // "apple"
+// Método pop: Elimina el último elemento del array y devuelve ese elemento
+let frutasEliminar = ["manzana", "plátano", "naranja"];
+let ultimaFruta = frutasEliminar.pop(); // "naranja"
 
-let fruitsunshift = ["banana", "orange"];
-fruitsunshift.unshift("apple"); // ["apple", "banana", "orange"]
+// Método shift: Elimina el primer elemento del array y devuelve ese elemento
+let frutasEliminarPrimero = ["manzana", "plátano", "naranja"];
+let primeraFruta = frutasEliminarPrimero.shift(); // "manzana"
 
-let fruitssplice = ["apple", "banana", "orange"];
-fruitssplice.splice(1, 1, "grape"); // ["apple", "grape", "orange"]
+// Método unshift: Agrega uno o más elementos al inicio del array
+let frutasAgregarInicio = ["plátano", "naranja"];
+frutasAgregarInicio.unshift("manzana"); // ["manzana", "plátano", "naranja"]
 
-let fruitsconcat = ["apple", "banana"];
-let vegetables = ["carrot", "potato"];
-let food = fruitsconcat.concat(vegetables); // ["apple", "banana", "carrot", "potato"]
+// Método splice: Cambia el contenido de un array eliminando elementos existentes y/o agregando nuevos elementos
+let frutasModificar = ["manzana", "plátano", "naranja"];
+frutasModificar.splice(1, 1, "uva"); // ["manzana", "uva", "naranja"]
+
+// Método concat: Combina dos o más arrays
+let frutas = ["manzana", "plátano"];
+let verduras = ["zanahoria", "papa"];
+let alimentos = frutas.concat(verduras); // ["manzana", "plátano", "zanahoria", "papa"]
 
 // Ejemplos de reduce
 console.log('Ejemplos de reduce');
 
-//EJEMPLO 1 de reduce
-const numbers = [10, 20, 30, 40];
-// Utilizamos reduce para sumar todos los números del array
-const sum = numbers.reduce((accumulator, currentValue) => {
-    // En cada iteración, sumamos el valor actual al acumulador
-    return accumulator + currentValue;
-}, 0); // 0 es el valor inicial del acumulador
-const resultadoReduce1 = 'El resultado del primer ejemplo de reduce es: ' + sum;
+// Ejemplo 1 de reduce: Sumar todos los números del array
+const numeros = [10, 20, 30, 40];
+const suma = numeros.reduce((acumulador, valorActual) => acumulador + valorActual, 0);
+const resultadoReduce1 = 'La suma de los números es: ' + suma;
 
-// Mostrar resultado en HTML
-document.getElementById('reduce1').textContent = 'Inicio:' + numbers;
-document.getElementById('resultadoReduce1').textContent = resultadoReduce1;
+// Ejemplo 2 de reduce: Concatenar todas las palabras del array
+const palabras = ['Hola', ' ', 'mundo', '!'];
+const frase = palabras.reduce((acumulador, valorActual) => acumulador + valorActual, '');
+const resultadoReduce2 = 'La frase es: ' + frase;
 
-//EJEMPLO 2 de reduce
-const words = ['Hola', ' ', 'mundo', '!'];
-// Utilizamos reduce para concatenar todos los strings del array
-const phrase = words.reduce((accumulator, currentValue) => {
-    // En cada iteración, concatenamos el valor actual al acumulador
-    return accumulator + currentValue;
-}, ''); // '' es el valor inicial del acumulador
-const resultadoReduce2 = 'El resultado del segundo ejemplo de reduce es: ' + phrase;
-
-// Mostrar resultado en HTML
-document.getElementById('reduce2').textContent = 'Inicio:' + words;
-document.getElementById('resultadoReduce2').textContent = resultadoReduce2;
-
-// Ejemplo de filtro
+// Ejemplos de filtro
 console.log('Ejemplos de filtro');
 
 // Array de números
-const numbers1al10 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-// Utilizamos filter para obtener solo los números pares del array
-const evenNumbers = numbers1al10.filter(number => {
-    // Comprobamos si el número es divisible por 2 (es par)
-    return number % 2 === 0;
-});
+const numerosDel1Al10 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// Obtener solo los números impares del array
+const numerosImpares = numerosDel1Al10.filter(numero => numero % 2 !== 0);
 
 // Construir el mensaje del resultado de filtro
-const resultadoFilter = 'El resultado del filtro es: ' + evenNumbers.join(', ');
+const resultadoFiltro = 'Los números impares son: ' + numerosImpares.join(', ');
 
-// Mostrar resultado en HTML
-document.getElementById('filter').textContent =  'Inicio:' + numbers1al10;
-document.getElementById('resultadoFilter').textContent = resultadoFilter;
-
+// Mostrar resultados
+console.log(resultadoReduce1);
+console.log(resultadoReduce2);
+console.log(resultadoFiltro);
