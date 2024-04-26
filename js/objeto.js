@@ -64,18 +64,14 @@ const favs = [
 function mostrarFavoritos() {
     const favoritosList = document.getElementById("contendorObjetos");
 
+    const ul = document.createElement("ul");
     favs.forEach(favorito => {
-        const cardHtml = `
-        <div class="col-5 m-1">
-        <div class="card">
-            <h2 class="card-title">${favorito.nombre}</h2>
-            <br>
-            <h5>${favorito.profesion}</h5>
-        </div>
-
-        </div>
-    `;
-        favoritosList.innerHTML += cardHtml;
+        const li = document.createElement("li");
+        li.textContent = `${favorito.nombre} - ${favorito.profesion}`;
+        ul.appendChild(li);
     });
+
+    favoritosList.appendChild(ul);
 }
+
 mostrarFavoritos();
